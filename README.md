@@ -13,4 +13,4 @@ a una lista de ese recurso. Además, dentro del listado de cualquier recurso, po
 # Instrucciones para probar el proyecto
 En gitbash o powershell:
 1. En raíz del proyecto ejecutar "npm i" para instalar dependencias.
-2. Ejecutar "ng s -o" para levantar el proyecto. Se abrirá el navegador con el sitio web.
+2. Ejecutar "ng s -o --no-hmr" para levantar el proyecto. Se abrirá el navegador con el sitio web.
