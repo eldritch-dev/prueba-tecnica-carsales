@@ -10,24 +10,24 @@ import { FbPaginator } from '../../shared/ui/fb-paginator';
   imports: [FbPaginator],
   template: `
     <section>
-      <h1 class="text-2xl font-semibold mb-4">Personajes de Rick y Morty</h1>
+      <h1 class="text-2xl font-semibold mb-4">Rick y Morty Episodes</h1>
 
       @defer (hydrate on viewport) {
         @if (episodes().length > 0) {
           <ul class="sm:flex sm:flex-col sm:justify-center place-items-center lg:gap-4 lg:grid lg:grid-cols-2 lg:justify-center">
             @for (episode of episodes(); track episode.id) {
               <a href="#" class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
-                <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">{{ episode.name }}</h5>
-                <p class="text-body">{{ episode.air_date }}</p>
+                <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">Episode {{ episode.id }}: {{ episode.name }}</h5>
+                <p class="text-body">Air Date: {{ episode.air_Date }}</p>
               </a>
             }
           </ul>
           <app-fb-paginator></app-fb-paginator>
         } @else {
-          <p class="text-slate-500">No se ha encontrado ningún episodio...</p>
+          <p class="text-slate-500">No episode has been found...</p>
         }
       } @placeholder {
-        <div>Cargando episodios...</div>
+        <div>Loading Episodes</div>
       }
     </section>
   `,

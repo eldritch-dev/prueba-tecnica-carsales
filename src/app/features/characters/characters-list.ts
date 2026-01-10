@@ -13,7 +13,7 @@ import { FbPaginator } from '../../shared/ui/fb-paginator';
   imports: [CommonModule, FbCard, FbPaginator],
   template: `
     <section>
-      <h1 class="text-2xl font-semibold mb-4">Personajes de Rick y Morty</h1>
+      <h1 class="text-2xl font-semibold mb-4">Rick y Morty Characters</h1>
 
       @defer (hydrate on viewport) {
         @if (characters().length > 0) {
@@ -24,10 +24,10 @@ import { FbPaginator } from '../../shared/ui/fb-paginator';
           </ul>
           <app-fb-paginator></app-fb-paginator>
         } @else {
-          <p class="text-slate-500">No se ha encontrado ningún personaje...</p>
+          <p class="text-slate-500">No character has been found...</p>
         }
       } @placeholder {
-        <div>Cargando personajes...</div>
+        <div>Loading Characters</div>
       }
     </section>
   `
