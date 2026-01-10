@@ -5,8 +5,8 @@ import { Character } from '../../features/characters/models/characters-model';
   selector: 'app-fb-card',
   standalone: true,
   template: `
-    <a href="#" class="flex flex-col items-center bg-neutral-primary-soft p-6 border border-default rounded-base shadow-xs md:flex-row md:max-w-xl">
-      <img class="object-cover w-full rounded-base h-64 md:h-auto md:w-48 mb-4 md:mb-0" [src]="data?.image" alt="">
+    <a href="#" class="flex flex-col items-center bg-neutral-primary-soft p-6 border border-default rounded-base shadow-xs md:flex-row w-full mb-4">
+      <img class="object-cover w-full rounded-base h-64 md:h-auto md:max-w-48 mb-4 md:mb-0" [src]="data?.image" alt="">
       <div class="flex flex-col justify-between md:p-4 leading-normal">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-heading">{{ data?.name }}</h5>
         <p class="text-body">Species: {{ data?.species }}</p>
