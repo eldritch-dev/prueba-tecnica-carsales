@@ -13,6 +13,12 @@ export const routes: Routes = [
             .then(m => m.CharacterRoutes)
       },
       {
+        path: 'episodes',
+        loadChildren: () =>
+          import('./features/episodes/episodes-routes')
+            .then(m => m.EpisodeRoutes)
+      },
+      {
         path: '',
         pathMatch: 'full',
         redirectTo: 'characters'
