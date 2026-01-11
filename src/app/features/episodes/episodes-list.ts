@@ -1,4 +1,4 @@
-import { Component, inject, Signal  } from '@angular/core';
+import { Component, computed, inject, Signal  } from '@angular/core';
 
 import { EpisodesService } from './service/episodes-service';
 import { FbPaginator } from '../../shared/ui/fb-paginator';
@@ -13,7 +13,7 @@ import { Episodes } from './models/episodes-model';
     <section>
       <h1 class="text-2xl font-semibold mb-4">Rick y Morty Episodes</h1>
       @defer (hydrate on viewport) {
-        @if (episodes().episodes && episodes().episodes.length > 0) {
+        @if (hasEpisodes()) {
           <ul class="sm:flex sm:flex-col sm:justify-center place-items-center lg:gap-4 lg:grid lg:grid-cols-2 lg:justify-center">
             @for (episode of episodes().episodes; track episode.id) {
               <app-fb-episodes-card [data]="episode" class="w-full"></app-fb-episodes-card>
@@ -34,6 +34,10 @@ export class EpisodesList {
   episodesService = inject(EpisodesService);
 
   readonly episodes: Signal<Episodes> = this.episodesService.episodes;
+
+  hasEpisodes: Signal<boolean> = computed(() =>
+    !!this.episodes().episodes && this.episodes().episodes.length > 0
+  );
 
   onPageChange(page: number) {
     this.episodesService.goToPage(page);

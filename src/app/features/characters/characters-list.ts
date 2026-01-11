@@ -1,4 +1,4 @@
-import { Component, inject, Signal } from '@angular/core';
+import { Component, computed, inject, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CharactersService } from './service/characters-service';
@@ -16,7 +16,7 @@ import { Characters } from './models/characters-model';
     <section>
       <h1 class="text-2xl font-semibold mb-4">Rick y Morty Characters</h1>
       @defer (hydrate on viewport) {
-        @if (characters() && characters().characters.length > 0) {
+        @if (hasCharacters()) {
           <ul class="sm:flex sm:flex-col sm:justify-center place-items-center lg:gap-4 lg:grid lg:grid-cols-2 lg:justify-center">
             @for (char of characters().characters; track char.id) {
               <app-fb-characters-card [data]="char" class="w-full"></app-fb-characters-card>
@@ -36,6 +36,10 @@ export class CharactersList {
   charactersService = inject(CharactersService);
 
   readonly characters: Signal<Characters> = this.charactersService.characters;
+
+  hasCharacters: Signal<boolean> = computed(() =>
+    this.characters().characters && this.characters().characters.length > 0
+  );
 
   onPageChange(page: number) {
     this.charactersService.goToPage(page);
