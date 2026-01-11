@@ -1,10 +1,11 @@
 import { Component, inject, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { Character } from './models/characters-model';
 import { CharactersService } from './service/characters-service';
 import { FbCharactersCard } from '../../shared/ui/fb-characters-card';
 import { FbPaginator } from '../../shared/ui/fb-paginator';
+import { Characters } from './models/characters-model';
+
 
 
 @Component({
@@ -14,15 +15,14 @@ import { FbPaginator } from '../../shared/ui/fb-paginator';
   template: `
     <section>
       <h1 class="text-2xl font-semibold mb-4">Rick y Morty Characters</h1>
-
       @defer (hydrate on viewport) {
-        @if (characters().length > 0) {
+        @if (characters() && characters().characters.length > 0) {
           <ul class="sm:flex sm:flex-col sm:justify-center place-items-center lg:gap-4 lg:grid lg:grid-cols-2 lg:justify-center">
-            @for (char of characters(); track char.id) {
+            @for (char of characters().characters; track char.id) {
               <app-fb-characters-card [data]="char" class="w-full"></app-fb-characters-card>
             }
           </ul>
-          <app-fb-paginator></app-fb-paginator>
+          <app-fb-paginator (pageChange)="onPageChange($event)" [totalPages]="characters().totalPages" [actualPage]="characters().actualPage"></app-fb-paginator>
         } @else {
           <p class="text-slate-500">No character has been found...</p>
         }
@@ -35,5 +35,9 @@ import { FbPaginator } from '../../shared/ui/fb-paginator';
 export class CharactersList {
   charactersService = inject(CharactersService);
 
-  readonly characters: Signal<Character[]> = this.charactersService.characters;
+  readonly characters: Signal<Characters> = this.charactersService.characters;
+
+  onPageChange(page: number) {
+    this.charactersService.goToPage(page);
+  }
 }

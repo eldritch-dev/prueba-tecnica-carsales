@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, inject, Signal  } from '@angular/core';
+import { Component, inject, Signal  } from '@angular/core';
 
 import { EpisodesService } from './service/episodes-service';
 import { FbPaginator } from '../../shared/ui/fb-paginator';
@@ -30,14 +30,11 @@ import { Episodes } from './models/episodes-model';
   `,
   styles: ``
 })
-export class EpisodesList implements AfterViewInit {
+export class EpisodesList {
   episodesService = inject(EpisodesService);
 
   readonly episodes: Signal<Episodes> = this.episodesService.episodes;
 
-  ngAfterViewInit(): void {
-    console.log(this.episodes().totalPages);
-  }
   onPageChange(page: number) {
     this.episodesService.goToPage(page);
   }
