@@ -1,9 +1,11 @@
-import { inject, Injectable, Signal, signal } from "@angular/core";
+import { inject, Injectable, Signal, signal, WritableSignal } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { BehaviorSubject, catchError, of, switchMap } from "rxjs";
 
 import { environment } from "../../../environments/environment";
-import { Character } from "../models/characters-model";
+import { Characters } from "../models/characters-model";
+import { Character } from "../models/character-model";
 
 
 @Injectable({
@@ -14,9 +16,26 @@ export class CharactersService {
   private readonly apiUrl = environment.baseUrl + this.resourceExtension;
   private http = inject(HttpClient);
 
-  readonly characters: Signal<Character[]> = toSignal(
-    this.http.get<Character[]>(this.apiUrl),
-    { initialValue: [] }
+  private pageSubject = new BehaviorSubject<number>(1);
+  readonly totalPages = signal(0);
+
+  readonly characters: Signal<Characters> = toSignal(
+    this.pageSubject.pipe(
+      switchMap(page =>
+        this.http.get<Characters>(this.apiUrl, { params: { page: page.toString() } })
+          .pipe(
+            catchError(err => {
+              this.error.set(err.message);
+              return of({} as Characters);
+            })
+          )
+      )
+    ),
+    { initialValue: {} as Characters }
   );
-  readonly error: Signal<string | null> = signal<string | null>(null);
+  readonly error: WritableSignal<string | null> = signal<string | null>(null);
+
+  goToPage(page: number) {
+    this.pageSubject.next(page);
+  }
 }

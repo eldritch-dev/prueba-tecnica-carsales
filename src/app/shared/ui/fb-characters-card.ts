@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { Character } from '../../features/characters/models/characters-model';
+import { Character } from '../../features/characters/models/character-model';
 
 @Component({
   selector: 'app-fb-characters-card',

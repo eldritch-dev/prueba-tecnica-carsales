@@ -1,13 +1,11 @@
-export interface Character {
-  id: number;
-  name: string;
-  species: string;
-  gender: string;
-  origin: Origin;
-  image: string;
-  url: string;
-}
+import { Character } from "./character-model";
 
-interface Origin {
-  name: string;
+
+export interface Characters {
+  characters: Character[];
+  totalCharacters: number;
+  totalPages: number;
+  actualPage: number;
+  nextPageUrl: string;
+  previousPageUrl: string;
 }
