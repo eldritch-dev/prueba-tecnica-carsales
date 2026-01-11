@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core'
 import { Character } from '../../features/characters/models/characters-model';
 
 @Component({
-  selector: 'app-fb-card',
+  selector: 'app-fb-characters-card',
   standalone: true,
   template: `
     <a href="#" class="flex flex-col items-center bg-neutral-primary-soft p-6 border border-default rounded-base shadow-xs md:flex-row w-full mb-4">
@@ -22,7 +22,7 @@ import { Character } from '../../features/characters/models/characters-model';
   `,
   styles: []
 })
-export class FbCard {
+export class FbCharactersCard {
   @Input() data?: Character = undefined;
 
 }

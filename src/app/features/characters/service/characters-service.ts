@@ -15,8 +15,8 @@ export class CharactersService {
   private http = inject(HttpClient);
 
   readonly characters: Signal<Character[]> = toSignal(
-      this.http.get<Character[]>(this.apiUrl),
-      { initialValue: [] }
-    );
+    this.http.get<Character[]>(this.apiUrl),
+    { initialValue: [] }
+  );
   readonly error: Signal<string | null> = signal<string | null>(null);
 }
