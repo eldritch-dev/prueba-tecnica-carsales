@@ -60,7 +60,7 @@ import { CommonModule } from '@angular/common';
 
       <footer class="w-full flex justify-between bg-slate-100 border-t">
         <div class="max-w-7xl px-4 py-4 text-sm text-slate-600">
-          Desarrollado por Javier Gutiérrez
+          Desarrollado por <a aria-label="GitHub back-end repository" class="font-semibold text-slate-900" target="_blank" href="https://eldritch.dev">Javier Gutiérrez</a>
         </div>
         <div class="max-w-7xl px-4 py-4 text-sm text-slate-600">
           Noviembre 2026
