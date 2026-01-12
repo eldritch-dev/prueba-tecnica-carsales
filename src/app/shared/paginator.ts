@@ -1,10 +1,10 @@
 import { Component, EventEmitter, inject, Input, Output, Signal } from "@angular/core";
 import { NgClass } from "@angular/common";
 
-import { BreakpointService } from '../../services/breakpoint-observer';
+import { BreakpointService } from '../services/breakpoint-observer';
 
 @Component({
-  selector: 'app-fb-paginator',
+  selector: 'app-paginator',
   standalone: true,
   imports: [NgClass],
   template: `
@@ -33,7 +33,7 @@ import { BreakpointService } from '../../services/breakpoint-observer';
     }
   `
 })
-export class FbPaginator {
+export class Paginator {
   breakPointService = inject(BreakpointService);
 
   @Input() totalPages: number = 0;
