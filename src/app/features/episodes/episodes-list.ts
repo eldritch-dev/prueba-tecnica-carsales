@@ -1,14 +1,14 @@
 import { Component, computed, inject, Signal  } from '@angular/core';
 
 import { EpisodesService } from './service/episodes-service';
-import { FbPaginator } from '../../shared/ui/fb-paginator';
+import { Paginator } from '../../shared/paginator';
 import { EpisodesCard } from './episodes-card';
 import { Episodes } from './models/episodes-model';
 
 @Component({
   selector: 'app-episodes-list',
   standalone: true,
-  imports: [FbPaginator, EpisodesCard],
+  imports: [Paginator, EpisodesCard],
   template: `
     <section>
       <h1 class="text-2xl font-semibold mb-4">Rick y Morty Episodes</h1>
@@ -19,7 +19,7 @@ import { Episodes } from './models/episodes-model';
               <app-episodes-card [data]="episode" class="w-full"></app-episodes-card>
             }
           </ul>
-          <app-fb-paginator (pageChange)="onPageChange($event)" [totalPages]="episodes().totalPages" [actualPage]="episodes().actualPage"></app-fb-paginator>
+          <app-paginator (pageChange)="onPageChange($event)" [totalPages]="episodes().totalPages" [actualPage]="episodes().actualPage"></app-paginator>
         } @else {
           <p class="text-slate-500">No episode has been found...</p>
         }
