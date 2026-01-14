@@ -1,4 +1,4 @@
-import { Injectable, Signal, inject } from "@angular/core";
+import { Injectable, Signal, WritableSignal, inject, signal } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 
 import { ErrorResponse } from "../models/error-model";
@@ -16,6 +16,9 @@ export class ErrorService {
   private http = inject(HttpClient);
 
   private trigger$ = new Subject<void>();
+  private _isErrorVisible: WritableSignal<boolean> = signal(false);
+
+  isErrorVisible = this._isErrorVisible.asReadonly();
 
   readonly error: Signal<ErrorResponse | null> = toSignal(
     this.trigger$.pipe(
@@ -30,5 +33,10 @@ export class ErrorService {
 
   triggerTestError() {
     this.trigger$.next();
+    this._isErrorVisible.set(true);
+  }
+
+  hideError() {
+    this._isErrorVisible.set(false);
   }
 }
