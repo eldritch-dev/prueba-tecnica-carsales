@@ -5,19 +5,56 @@ import { Character } from './models/character-model';
   selector: 'app-characters-card',
   standalone: true,
   template: `
-    <div href="#" class="flex flex-col items-center bg-neutral-primary-soft p-6 border border-default rounded-base shadow-xs md:flex-row w-full mb-4">
-      <img class="object-cover w-full rounded-base h-64 md:h-auto md:max-w-48 mb-4 md:mb-0" [src]="data?.image" alt="">
-      <div class="flex flex-col justify-between md:p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-heading">{{ data?.id }}. {{ data?.name }}</h5>
-        <p class="text-body">Species: {{ data?.species }}</p>
-        <span class="text-body">Gender: {{ data?.gender }}</span>
-        <span class="mb-6 text-body">Origin: {{ data?.origin?.name }}</span>
+    <div href="#" class="ptc-card">
+      <img class="thumbnail" [src]="data?.image" alt="">
+      <div class="content txt-color">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight title-color">{{ data?.id }}. {{ data?.name }}</h5>
+        <p>Species: {{ data?.species }}</p>
+        <span>Gender: {{ data?.gender }}</span>
+        <span class="mb-6">Origin: {{ data?.origin?.name }}</span>
       </div>
     </div>
   `,
   styles: `
-    ptc-card {
-      
+    .ptc-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      width: 100%;
+
+      .thumbnail {
+        height: 16rem;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        line-height: 1.5rem;
+      }
+    }
+
+    @media (width >= 48rem) {
+      .ptc-card {
+        flex-direction: row;
+
+        .thumbnail {
+          height: auto;
+          max-width: 12rem;
+          margin-bottom: 0;
+        }
+
+        .content {
+          padding: 1rem;
+        }
+      }
     }
   `
 })
