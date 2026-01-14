@@ -1,11 +1,12 @@
-import { Component, Input, signal, WritableSignal } from '@angular/core';
+import { Component, inject, Input, Signal, signal, WritableSignal } from '@angular/core';
+import { ErrorService } from './service/error-service';
 
 
 @Component({
   selector: 'app-error-message',
   standalone: true,
   template: `
-    @if (isVisible() && error) {
+    @if (errorService.isErrorVisible() && error) {
       <div id="alert-additional-content-2" class="p-4 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft border border-danger-subtle" role="alert">
         <div class="flex items-center justify-between">
           <div class="flex items-center">
@@ -33,9 +34,13 @@ import { Component, Input, signal, WritableSignal } from '@angular/core';
 export class ErrorMessage {
   @Input() error: string | null = null;
   @Input() traceId?: string | null;
-  @Input() isVisible: WritableSignal<boolean> = signal(true);
+  @Input() isVisible: boolean = true;
+
+  errorService = inject(ErrorService);
 
   close() {
-    this.isVisible.set(false);
+    this.errorService.hideError();
   }
+
+
 }
