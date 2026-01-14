@@ -15,7 +15,7 @@ import { TESButton } from '../../shared/tes-button';
   template: `
     <section>
       <div class="flex justify-between">
-        <h1 class="text-2xl font-semibold mb-4">Rick y Morty Episodes</h1>
+        <h1 class="view-title bold-txt title-color">Rick y Morty Episodes</h1>
         <app-tes-button (click)="triggerError()"></app-tes-button>
       </div>
       <app-error-message [isVisible]="errorService.isErrorVisible()" [error]="(errorService.error()?.error ?? '')" [traceId]="errorService.error()?.traceId"></app-error-message>
@@ -28,7 +28,7 @@ import { TESButton } from '../../shared/tes-button';
           </ul>
           <app-paginator (pageChange)="onPageChange($event)" [totalPages]="episodes().totalPages" [actualPage]="episodes().actualPage"></app-paginator>
         } @else {
-          <p class="text-slate-500">No episode has been found...</p>
+          <p>No episode has been found...</p>
         }
       } @placeholder {
         <div>Loading Episodes</div>
