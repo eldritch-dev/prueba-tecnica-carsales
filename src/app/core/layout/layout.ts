@@ -12,18 +12,10 @@ import { CommonModule } from '@angular/common';
         <span class="text-lg font-semibold flex items-center ml-8">Prueba Técnica Carsales</span>
         <div class="flex">
           <div class="flex justify-evenly items-center">
-            <button
-              type="button"
-              (click)="goToCharacters()"
-              class="text-heading hover:text-white hover:cursor-pointer h-8 bg-linear-to-br from-purple-600 to-blue-500 hover:bg-linear-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-base text-sm px-4 text-center leading-5"
-            >
+            <button type="button" (click)="goToCharacters()" class="cosmic-btn">
               Characters
             </button>
-            <button
-              type="button"
-              (click)="goToEpisodes()"
-              class=" text-heading hover:text-white hover:cursor-pointer h-8 ml-4 bg-linear-to-br from-purple-600 to-blue-500 hover:bg-linear-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-base text-sm px-4 text-center leading-5"
-            >
+            <button type="button" (click)="goToEpisodes()" class="cosmic-btn">
               Episodes
             </button>
           </div>
