@@ -13,9 +13,13 @@ import { Character } from './models/character-model';
         <span class="text-body">Gender: {{ data?.gender }}</span>
         <span class="mb-6 text-body">Origin: {{ data?.origin?.name }}</span>
       </div>
-</div>
+    </div>
   `,
-  styles: []
+  styles: `
+    ptc-card {
+      
+    }
+  `
 })
 export class CharactersCard {
   @Input() data?: Character = undefined;
