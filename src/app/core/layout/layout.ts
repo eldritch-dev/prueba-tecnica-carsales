@@ -63,7 +63,7 @@ import { CommonModule } from '@angular/common';
           Desarrollado por <a aria-label="GitHub back-end repository" class="font-semibold text-slate-900" target="_blank" href="https://eldritch.dev">Javier Gutiérrez</a>
         </div>
         <div class="max-w-7xl px-4 py-4 text-sm text-slate-600">
-          Noviembre 2026
+          Enero 2026
         </div>
       </footer>
 

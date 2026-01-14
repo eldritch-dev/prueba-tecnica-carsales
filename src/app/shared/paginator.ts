@@ -13,7 +13,7 @@ import { BreakpointService } from '../services/breakpoint-observer';
         <ul class="flex justify-items-center -space-x-px text-sm">
           <li>
             <button [disabled]="actualPage === 1" (click)="goToPage(actualPage - 1)" [ngClass]="{'hover:bg-neutral-tertiary-medium hover:text-heading': actualPage !== 1}" class="flex items-center justify-center bg-neutral-secondary-medium box-border border border-default-medium font-medium rounded-s-base text-sm px-3 h-9 focus:outline-none">
-              <a [ngClass]="{'cursor-pointer text-body': actualPage !== 1, 'text-gray-400': actualPage === 1}">Previous</a>
+              <a [ngClass]="{'cursor-pointer text-body': actualPage !== 1, 'text-gray-400': actualPage === 1}">Anterior</a>
             </button>
           </li>
           @for (page of pages; track page) {
@@ -25,7 +25,7 @@ import { BreakpointService } from '../services/breakpoint-observer';
           }
           <li>
             <button [disabled]="actualPage === totalPages" (click)="goToPage(actualPage + 1)" [ngClass]="{'hover:bg-neutral-tertiary-medium hover:text-heading': actualPage !== totalPages}" class="flex items-center justify-center bg-neutral-secondary-medium box-border border border-default-medium font-medium rounded-e-base text-sm px-3 h-9 focus:outline-none">
-              <a [ngClass]="{'cursor-pointer text-body': actualPage !== totalPages, 'text-gray-400': actualPage === totalPages}">Next</a>
+              <a [ngClass]="{'cursor-pointer text-body': actualPage !== totalPages, 'text-gray-400': actualPage === totalPages}">Siguiente</a>
             </button>
           </li>
         </ul>
