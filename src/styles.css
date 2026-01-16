@@ -7,6 +7,11 @@
 :root {
   --border-default-medium: #d1d5db;
   --radius-base: 0.75rem;
+
+  --color-default-gray: #4a5565;
+  --color-gray-400: #99a1af;
+  --color-blue-500: #2b7fff;
+  --color-slate-100: #f1f5f9;
 }
 
 *,
@@ -43,6 +48,7 @@ img, svg, video {
 
 .justify-center { justify-content: center; }
 .justify-evenly { justify-content: space-evenly; }
+.justify-between { justify-content: space-between; }
 
 .items-center { align-items: center; }
 
@@ -57,16 +63,20 @@ img, svg, video {
 }
 
 /* colors */
+.bg-slate-100 {
+  background-color: var(--color-slate-100);
+}
+
 .text-blue-500 {
-  color: #2b7fff;
+  color: var(--color-blue-500);
 }
 
-.color-gray-400 {
-  color: #99a1af;
+.text-gray-400 {
+  color: var(--color-gray-400);
 }
 
-.color-default-gray {
-  color: #4a5565;
+.text-default-gray {
+  color: var(--color-default-gray);
 }
 
 /* sizing */

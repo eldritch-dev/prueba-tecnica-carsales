@@ -13,19 +13,19 @@ import { BreakpointService } from '../services/breakpoint-service';
         <ul class="flex justify-items-center -space-x-px text-sm">
           <li>
             <button [disabled]="actualPage === 1" (click)="goToPage(actualPage - 1)" class="flex items-center justify-center semi-bold-txt border border-default-medium rounded-s-base text-sm px-3 h-9">
-              <a [ngClass]="{'cursor-pointer color-default-gray': actualPage !== 1, 'color-gray-400': actualPage === 1}" style="font-family: 'Inter', sans-serif;">Anterior</a>
+              <a [ngClass]="{'cursor-pointer text-default-gray': actualPage !== 1, 'text-gray-400': actualPage === 1}" style="font-family: 'Inter', sans-serif;">Anterior</a>
             </button>
           </li>
           @for (page of pages; track page) {
             <li>
               <button [disabled]="actualPage === page" (click)="goToPage(page)" class="flex items-center justify-center semi-bold-txt bg-neutral-secondary-medium border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm w-9 h-9">
-                <a [ngClass]="{'cursor-pointer color-default-gray': actualPage !== page, 'text-blue-500': actualPage === page}" style="font-family: 'Inter', sans-serif;">{{ page }}</a>
+                <a [ngClass]="{'cursor-pointer text-default-gray': actualPage !== page, 'text-blue-500': actualPage === page}" style="font-family: 'Inter', sans-serif;">{{ page }}</a>
               </button>
             </li>
           }
           <li>
             <button [disabled]="actualPage === totalPages" (click)="goToPage(actualPage + 1)" class="flex items-center justify-center semi-bold-txt border border-default-medium font-medium rounded-e-base text-sm px-3 h-9">
-              <a [ngClass]="{'cursor-pointer color-default-gray': actualPage !== totalPages, 'color-gray-400': actualPage === totalPages}" style="font-family: 'Inter', sans-serif;">Siguiente</a>
+              <a [ngClass]="{'cursor-pointer text-default-gray': actualPage !== totalPages, 'text-gray-400': actualPage === totalPages}" style="font-family: 'Inter', sans-serif;">Siguiente</a>
             </button>
           </li>
         </ul>
