@@ -8,6 +8,7 @@ import { Characters } from './models/characters-model';
 import { ErrorService } from '../../shared/components/errors/service/error-service';
 import { ErrorMessage } from '../../shared/components/errors/error-message';
 import { TESButton } from '../../shared/tes-button';
+import { BreakpointService } from '../../services/breakpoint-service';
 
 
 
@@ -17,9 +18,9 @@ import { TESButton } from '../../shared/tes-button';
   imports: [TESButton, CommonModule, CharactersCard, Paginator, ErrorMessage],
   template: `
     <section>
-      <div class="section-header">
+      <div class="section-header" [ngClass]="{'flex-col': breakPointService.isSm()}">
         <h1 class="view-title bold-txt title-color">Rick y Morty Characters</h1>
-        <app-tes-button (click)="triggerError()"></app-tes-button>
+        <app-tes-button (click)="triggerError()" [ngClass]="{'mb-4': breakPointService.isSm()}"></app-tes-button>
       </div>
       <app-error-message [isVisible]="errorService.isErrorVisible()" [error]="(errorService.error()?.error ?? '')" [traceId]="errorService.error()?.traceId"></app-error-message>
       @defer (hydrate on viewport) {
@@ -42,6 +43,7 @@ import { TESButton } from '../../shared/tes-button';
 export class CharactersList {
   charactersService = inject(CharactersService);
   errorService = inject(ErrorService);
+  breakPointService = inject(BreakpointService);
 
   readonly characters: Signal<Characters> = this.charactersService.characters;
 

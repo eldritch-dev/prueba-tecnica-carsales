@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, Input, Output, Signal } from "@angular/core";
 import { NgClass } from "@angular/common";
 
-import { BreakpointService } from '../services/breakpoint-observer';
+import { BreakpointService } from '../services/breakpoint-service';
 
 @Component({
   selector: 'app-paginator',
