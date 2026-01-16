@@ -2,7 +2,114 @@
 @import "flowbite/src/themes/default";
 @import 'tailwindcss';
 
+/* global styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1.5;
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
 .flex { display: flex; }
+
+.flex-col { flex-direction: column; }
+
+.justify-center { justify-content: center; }
+.justify-evenly { justify-content: space-evenly; }
+
+.items-center { align-items: center; }
+
+/* sizing */
+.max-w-7xl {
+  max-width: 80rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.size-5 {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* spacing */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mr-6 {
+  margin-right: 1.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.ml-12 {
+  margin-left: 3rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.absolute { position: absolute; }
+.relative { position: relative; }
 
 .title-color {
   color: #101828;
@@ -14,6 +121,33 @@
 
 .bold-txt {
   font-weight: 700;
+}
+
+.blue-gh-btn {
+  fill: #51a2ff;
+}
+
+.pink-gh-btn {
+  fill: #fb64b6;
+}
+
+.blue-gh-btn:hover, .pink-gh-btn:hover {
+  fill: white;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .section-header {
