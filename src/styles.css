@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "flowbite/src/themes/default";
-@import 'tailwindcss';
+/* @import 'tailwindcss'; */
 
 /* global styles */
+
+:root {
+  --border-default-medium: #d1d5db;
+  --radius-base: 0.75rem;
+}
+
 *,
 *::before,
 *::after {
@@ -16,6 +22,14 @@ html, body {
 
 body {
   line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+button {
+  all: unset;
 }
 
 img, svg, video {
@@ -32,6 +46,29 @@ img, svg, video {
 
 .items-center { align-items: center; }
 
+.justify-items-center {
+  justify-content: center;
+  align-items: center;
+}
+
+/* utilities */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* colors */
+.text-blue-500 {
+  color: #2b7fff;
+}
+
+.color-gray-400 {
+  color: #99a1af;
+}
+
+.color-default-gray {
+  color: #4a5565;
+}
+
 /* sizing */
 .max-w-7xl {
   max-width: 80rem;
@@ -44,6 +81,14 @@ img, svg, video {
 .size-5 {
   width: 1.25rem;
   height: 1.25rem;
+}
+
+.w-9 {
+  width: 2.25rem;
+}
+
+.h-9 {
+  height: 2.25rem;
 }
 
 /* spacing */
@@ -59,6 +104,10 @@ img, svg, video {
 
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .mr-6 {
@@ -85,6 +134,11 @@ img, svg, video {
   margin-left: 3rem;
 }
 
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -103,12 +157,21 @@ img, svg, video {
 .absolute { position: absolute; }
 .relative { position: relative; }
 
+/* typography */
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
 .title-color {
   color: #101828;
 }
 
 .txt-color {
   color: #4a5565;
+}
+
+.semi-bold-txt {
+  font-weight: 500;
 }
 
 .bold-txt {
@@ -142,6 +205,13 @@ img, svg, video {
   line-height: 2rem;
 }
 
+.border {
+  border-width: 1px;
+  border-style: solid;
+}
+
+/* component styles */
+
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -160,6 +230,31 @@ img, svg, video {
   justify-content: center;
   place-items: center;
   gap: 1rem;
+}
+
+.ptc-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  width: 100%;
+
+  .thumbnail {
+    height: 16rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 1.5rem;
+  }
 }
 
 .cosmic-btn {
@@ -188,7 +283,19 @@ img, svg, video {
 
 /* md */
 @media (width >= 48rem) {
+  .ptc-card {
+    flex-direction: row;
 
+    .thumbnail {
+      height: auto;
+      max-width: 12rem;
+      margin-bottom: 0;
+    }
+
+    .content {
+      padding: 1rem;
+    }
+  }
 }
 
 /* lg */

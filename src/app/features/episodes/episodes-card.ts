@@ -5,15 +5,15 @@ import { Episode } from './models/episode-model';
   selector: 'app-episodes-card',
   standalone: true,
   template: `
-    <a href="#" class="flex flex-col items-center bg-neutral-primary-soft p-6 border border-default rounded-base shadow-xs md:flex-row w-full mb-4">
-      <div class="flex flex-col justify-between md:p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-heading">{{ data?.id }}. {{ data?.name }}</h5>
-        <p class="text-body">Air Date: {{ data?.air_Date }}</p>
-        <p class="text-body">Episode: {{ data?.episode }}</p>
+    <div class="ptc-card">
+      <div class="content txt-color">
+        <h5 class="mb-2 text-2xl bold-txt tracking-tight title-color">{{ data?.id }}. {{ data?.name }}</h5>
+        <p>Air Date: {{ data?.air_Date }}</p>
+        <p>Episode: {{ data?.episode }}</p>
         <div>
         </div>
       </div>
-    </a>
+    </div>
   `,
   styles: []
 })
