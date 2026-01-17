@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "flowbite/src/themes/default";
-/* @import 'tailwindcss'; */
+@import 'tailwindcss';
 
 /* global styles */
 
@@ -10,8 +10,16 @@
 
   --color-default-gray: #4a5565;
   --color-gray-400: #99a1af;
+
   --color-blue-500: #2b7fff;
+
   --color-slate-100: #f1f5f9;
+
+  --color-danger-soft: #fff1f2;
+
+  --color-danger-subtle: #ffccd3;
+
+  --color-fg-danger-strong: #8b0836;
 }
 
 *,
@@ -46,6 +54,8 @@ img, svg, video {
 
 .flex-col { flex-direction: column; }
 
+.shrink-0 { flex-shrink: 0; }
+
 .justify-center { justify-content: center; }
 .justify-evenly { justify-content: space-evenly; }
 .justify-between { justify-content: space-between; }
@@ -55,6 +65,19 @@ img, svg, video {
 .justify-items-center {
   justify-content: center;
   align-items: center;
+}
+
+/* layout */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* utilities */
@@ -67,6 +90,10 @@ img, svg, video {
   background-color: var(--color-slate-100);
 }
 
+.bg-danger-soft {
+  background-color: var(--color-danger-soft);
+}
+
 .text-blue-500 {
   color: var(--color-blue-500);
 }
@@ -77,6 +104,10 @@ img, svg, video {
 
 .text-default-gray {
   color: var(--color-default-gray);
+}
+
+.text-fg-danger-strong {
+  color: var(--color-fg-danger-strong);
 }
 
 /* sizing */
@@ -93,8 +124,16 @@ img, svg, video {
   height: 1.25rem;
 }
 
+.w-4 {
+  width: 1rem;
+}
+
 .w-9 {
   width: 2.25rem;
+}
+
+.h-4 {
+  height: 1rem;
 }
 
 .h-9 {
@@ -142,6 +181,14 @@ img, svg, video {
 
 .ml-12 {
   margin-left: 3rem;
+}
+
+.me-2 {
+  margin-inline-end: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .px-3 {
@@ -215,9 +262,15 @@ img, svg, video {
   line-height: 2rem;
 }
 
+/* borders */
+
 .border {
   border-width: 1px;
   border-style: solid;
+}
+
+.border-danger-subtle {
+  border-color: var(--color-danger-subtle);
 }
 
 /* component styles */
