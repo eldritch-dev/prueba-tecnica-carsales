@@ -15,48 +15,7 @@ import { Character } from './models/character-model';
       </div>
     </div>
   `,
-  styles: `
-    .ptc-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 1.5rem;
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      width: 100%;
-
-      .thumbnail {
-        height: 16rem;
-        width: 100%;
-        object-fit: cover;
-        border-radius: 12px;
-        margin-bottom: 1rem;
-      }
-
-      .content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        line-height: 1.5rem;
-      }
-    }
-
-    @media (width >= 48rem) {
-      .ptc-card {
-        flex-direction: row;
-
-        .thumbnail {
-          height: auto;
-          max-width: 12rem;
-          margin-bottom: 0;
-        }
-
-        .content {
-          padding: 1rem;
-        }
-      }
-    }
-  `
+  styles: ``
 })
 export class CharactersCard {
   @Input() data?: Character = undefined;
