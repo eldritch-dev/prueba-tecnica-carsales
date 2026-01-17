@@ -5,6 +5,7 @@
   --radius-base: 0.75rem;
 
   --color-default-gray: #4a5565;
+  --color-gray-200: #e5e7eb;
   --color-gray-400: #99a1af;
 
   --color-blue-500: #2b7fff;
@@ -46,6 +47,7 @@ img, svg, video {
   max-width: 100%;
 }
 
+.inline-block { display: inline-block; }
 .flex { display: flex; }
 
 .flex-col { flex-direction: column; }
@@ -120,12 +122,24 @@ img, svg, video {
   height: 1.25rem;
 }
 
+.w-full {
+  width: 100;
+}
+
 .w-4 {
   width: 1rem;
 }
 
 .w-9 {
   width: 2.25rem;
+}
+
+.w-48 {
+  width: 12rem;
+}
+
+.w-56 {
+  width: 14rem;
 }
 
 .h-4 {

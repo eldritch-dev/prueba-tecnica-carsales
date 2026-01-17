@@ -9,17 +9,20 @@ import { ErrorService } from '../../shared/components/errors/service/error-servi
 import { ErrorMessage } from '../../shared/components/errors/error-message';
 import { TESButton } from '../../shared/tes-button';
 import { BreakpointService } from '../../services/breakpoint-service';
+import { DropdownSelector } from '../../shared/components/dropdown/dropdown';
+import { GENDERS } from '../characters/models/character-constants';
 
 
 
 @Component({
   selector: 'app-characters-list',
   standalone: true,
-  imports: [TESButton, CommonModule, CharactersCard, Paginator, ErrorMessage],
+  imports: [DropdownSelector, TESButton, CommonModule, CharactersCard, Paginator, ErrorMessage],
   template: `
     <section>
       <div class="section-header" [ngClass]="{'flex-col': breakPointService.isSm()}">
         <h1 class="view-title bold-txt title-color">Rick y Morty Characters</h1>
+        <app-dropdown-selector [dataSource]="genders" [service]="charactersService" filterKey="gender" [ngClass]="{'w-56 mb-4': breakPointService.isSm(), 'w-48': !breakPointService.isSm()}"></app-dropdown-selector>
         <app-tes-button (click)="triggerError()" [ngClass]="{'mb-4': breakPointService.isSm()}"></app-tes-button>
       </div>
       <app-error-message [isVisible]="errorService.isErrorVisible()" [error]="(errorService.error()?.error ?? '')" [traceId]="errorService.error()?.traceId"></app-error-message>
@@ -50,6 +53,8 @@ export class CharactersList {
   hasCharacters: Signal<boolean> = computed(() =>
     this.characters().characters && this.characters().characters.length > 0
   );
+
+  genders = GENDERS;
 
   onPageChange(page: number) {
     this.charactersService.goToPage(page);
