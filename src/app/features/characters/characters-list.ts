@@ -22,11 +22,11 @@ import { SearchComponent } from '../../shared/search';
   template: `
     <section>
       <div class="section-header" [ngClass]="{'flex-col': breakPointService.isSm()}">
-        <h1 class="view-title bold-txt title-color">Rick y Morty Characters</h1>
-        <app-search-component [service]="charactersService"></app-search-component>
-        <app-dropdown-selector [dataSource]="species" [service]="charactersService" filterKey="species" type="Especie" [ngClass]="{'w-56 mb-4': breakPointService.isSm(), 'w-48': !breakPointService.isSm()}"></app-dropdown-selector>
-        <app-dropdown-selector [dataSource]="genders" [service]="charactersService" filterKey="gender" type="Género" [ngClass]="{'w-56 mb-4': breakPointService.isSm(), 'w-48': !breakPointService.isSm()}"></app-dropdown-selector>
-        <app-tes-button (click)="triggerError()" [ngClass]="{'mb-4': breakPointService.isSm()}"></app-tes-button>
+        <h1 class="view-title bold-txt title-color" [ngClass]="{'text-center': breakPointService.isSm()}">Rick y Morty Characters</h1>
+        <app-search-component [service]="charactersService" [ngClass]="{'w-56 mb-4 flex justify-center': breakPointService.isSm(), 'w-48': !breakPointService.isSm()}"></app-search-component>
+        <app-dropdown-selector [dataSource]="species" [service]="charactersService" filterKey="species" type="Especie" [ngClass]="{'w-56 mb-4 flex justify-center': breakPointService.isSm(), 'w-48': !breakPointService.isSm()}"></app-dropdown-selector>
+        <app-dropdown-selector [dataSource]="genders" [service]="charactersService" filterKey="gender" type="Género" [ngClass]="{'w-56 mb-4 flex justify-center': breakPointService.isSm(), 'w-48': !breakPointService.isSm()}"></app-dropdown-selector>
+        <app-tes-button (click)="triggerError()" [ngClass]="{'mb-4 flex justify-center': breakPointService.isSm()}"></app-tes-button>
       </div>
       <app-error-message [isVisible]="errorService.isErrorVisible()" [error]="(errorService.error()?.error ?? '')" [traceId]="errorService.error()?.traceId"></app-error-message>
       @defer (hydrate on viewport) {

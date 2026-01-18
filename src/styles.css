@@ -190,6 +190,10 @@ img, svg, video {
   margin-left: 0.5rem;
 }
 
+.ml-8 {
+  margin-left: 2rem;
+}
+
 .ml-12 {
   margin-left: 3rem;
 }
@@ -228,6 +232,10 @@ img, svg, video {
 /* typography */
 .tracking-tight {
   letter-spacing: -0.025em;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .title-color {
@@ -304,6 +312,7 @@ img, svg, video {
   justify-content: center;
   place-items: center;
   gap: 1rem;
+  padding: 0;
 }
 
 .ptc-card {
@@ -348,6 +357,10 @@ img, svg, video {
   color: white;
   cursor: pointer;
   background: linear-gradient(to bottom left, #9810fa, #2b7fff);
+}
+
+.close-btn:hover {
+  color: var(--color-gray-500);
 }
 
 /* sm */
