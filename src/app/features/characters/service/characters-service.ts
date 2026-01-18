@@ -5,7 +5,7 @@ import { BehaviorSubject, catchError, of, switchMap } from "rxjs";
 
 import { environment } from "../../../environments/environment";
 import { Characters } from "../models/characters-model";
-import { Character } from "../models/character-model";
+import { CharacterQuery } from "../models/character-query";
 
 
 @Injectable({
@@ -16,26 +16,32 @@ export class CharactersService {
   private readonly apiUrl = environment.baseUrl + this.resourceExtension;
   private http = inject(HttpClient);
 
-  private pageSubject = new BehaviorSubject<number>(1);
+  private querySubject = new BehaviorSubject<CharacterQuery>({ page: 1, filters: {} });
   readonly totalPages = signal(0);
 
   readonly characters: Signal<Characters> = toSignal(
-    this.pageSubject.pipe(
-      switchMap(page =>
-        this.http.get<Characters>(this.apiUrl, { params: { page: page.toString() } })
+    this.querySubject.pipe(
+      switchMap(query => {
+        const params: Record<string, string> = { page: query.page.toString() };
+        if (query.filters) Object.assign(params, query.filters);
+
+        return this.http.get<Characters>(this.apiUrl, { params })
           .pipe(
             catchError(err => {
               this.error.set(err.message);
               return of({} as Characters);
             })
-          )
-      )
+          );
+      })
     ),
     { initialValue: {} as Characters }
   );
   readonly error: WritableSignal<string | null> = signal<string | null>(null);
 
-  goToPage(page: number) {
-    this.pageSubject.next(page);
+  goToPage(page: number, filters?: Record<string, string>) {
+    const current = this.querySubject.getValue();
+    this.querySubject.next({
+      page, filters: { ...current.filters, ...filters }
+    });
   }
 }
