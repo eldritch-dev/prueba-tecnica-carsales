@@ -1,11 +1,12 @@
 import { inject, Injectable, Signal, signal, WritableSignal } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { BehaviorSubject, catchError, of, switchMap } from "rxjs";
+import { BehaviorSubject, catchError, map, of, switchMap } from "rxjs";
 
 import { environment } from "../../../environments/environment";
 import { Characters } from "../models/characters-model";
 import { CharacterQuery } from "../models/character-query";
+import { CharactersSearchResponse, CharacterSuggestionDto } from "../models/character-model";
 
 
 @Injectable({
@@ -43,5 +44,14 @@ export class CharactersService {
     this.querySubject.next({
       page, filters: { ...current.filters, ...filters }
     });
+  }
+
+  getSuggestions(query: string) {
+    const url = `${this.apiUrl}/search`;
+    return this.http.get<CharactersSearchResponse>(url, { params: { query } })
+      .pipe(
+        map(res => res.characters ?? []),
+        catchError(() => of([]))
+      );
   }
 }

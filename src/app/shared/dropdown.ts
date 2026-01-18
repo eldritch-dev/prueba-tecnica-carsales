@@ -1,7 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import { CharactersService } from '../features/characters/service/characters-service';
+import { BreakpointService } from '../services/breakpoint-service';
 
 @Component({
   selector: 'app-dropdown-selector',
@@ -52,12 +54,6 @@ import { CharactersService } from '../features/characters/service/characters-ser
       right: 1.5rem;
       top: 15%;
     }
-
-    .close-btn:hover {
-      color: var(--color-gray-500);
-    }
-
-
   `
 })
 export class DropdownSelector {
@@ -65,6 +61,8 @@ export class DropdownSelector {
   @Input() service?: CharactersService; // ESPECIFICAR EPISODESSERVICE SI SE LLEGA A USAR EN ESA VISTA
   @Input() filterKey!: string;
   @Input() type!: string;
+
+  breakpointService = inject(BreakpointService)
 
   selection: string | null = null;
   placeholder: string = '';
