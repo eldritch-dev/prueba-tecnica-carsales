@@ -10,13 +10,13 @@ import { CharactersService } from '../../../features/characters/service/characte
   template: `
   <div class="relative inline-block w-48">
     <select class="selector" [(ngModel)]="selection" (change)="onChange()">
-      <option value="" disabled selected>Filtra por Género</option>
       @for (item of dataSource; track item) {
-        <option [value]="item">
+        <option [value]="item" class="option">
           {{ item | titlecase }}
         </option>
       }
     </select>
+    <span class="placeholder absolute">Filtra por {{ type }}</span>
     @if (selection) {
       <button type="button" (click)="clear()" class="close-btn absolute">
         X
@@ -29,31 +29,45 @@ import { CharactersService } from '../../../features/characters/service/characte
       width: 100%;
       border-radius: 12px;
       height: 2rem;
-      border: 1px solid var(--color-gray-200);
+      border: 1px solid var(--color-gray-500);
       padding: 2px;
+
+      .option {
+        color: var(--color-gray-200);
+      }
+    }
+
+    .placeholder {
+      font-size: 12px;
+      font-weight: 300;
+      right: 5.5rem;
+      top: -30%;
+      padding: 0 3px;
+      background: white;
     }
 
     .close-btn {
+      font-family: "Inter", sans-serif;
+      font-weight: 300;
       right: 1.5rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #6B7280;
-      background: transparent;
-      border: none;
-      cursor: pointer;
+      top: 15%;
     }
 
     .close-btn:hover {
-      color: #374151;
+      color: var(--color-gray-500);
     }
+
+
   `
 })
 export class DropdownSelector {
   @Input() dataSource: readonly string[] = [];
-  @Input() service?: CharactersService; // ESPECIFICAR OTRAS OPCIONES
+  @Input() service?: CharactersService; // ESPECIFICAR EPISODESSERVICE SI SE LLEGA A USAR EN ESA VISTA
   @Input() filterKey!: string;
+  @Input() type!: string;
 
   selection: string | null = null;
+  placeholder: string = '';
 
   onChange() {
     if (this.service && this.filterKey) {
