@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CharactersService } from '../../../features/characters/service/characters-service';
+import { CharactersService } from '../features/characters/service/characters-service';
 
 @Component({
   selector: 'app-dropdown-selector',

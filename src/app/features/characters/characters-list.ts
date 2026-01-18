@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal, Signal, WritableSignal } from '@angular/core';
+import { Component, computed, inject, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CharactersService } from './service/characters-service';
@@ -9,19 +9,21 @@ import { ErrorService } from '../../shared/components/errors/service/error-servi
 import { ErrorMessage } from '../../shared/components/errors/error-message';
 import { TESButton } from '../../shared/tes-button';
 import { BreakpointService } from '../../services/breakpoint-service';
-import { DropdownSelector } from '../../shared/components/dropdown/dropdown';
+import { DropdownSelector } from '../../shared/dropdown';
 import { GENDERS, SPECIES } from '../characters/models/character-constants';
+import { SearchComponent } from '../../shared/search';
 
 
 
 @Component({
   selector: 'app-characters-list',
   standalone: true,
-  imports: [DropdownSelector, TESButton, CommonModule, CharactersCard, Paginator, ErrorMessage],
+  imports: [SearchComponent, DropdownSelector, TESButton, CommonModule, CharactersCard, Paginator, ErrorMessage],
   template: `
     <section>
       <div class="section-header" [ngClass]="{'flex-col': breakPointService.isSm()}">
         <h1 class="view-title bold-txt title-color">Rick y Morty Characters</h1>
+        <app-search-component [service]="charactersService"></app-search-component>
         <app-dropdown-selector [dataSource]="species" [service]="charactersService" filterKey="species" type="Especie" [ngClass]="{'w-56 mb-4': breakPointService.isSm(), 'w-48': !breakPointService.isSm()}"></app-dropdown-selector>
         <app-dropdown-selector [dataSource]="genders" [service]="charactersService" filterKey="gender" type="Género" [ngClass]="{'w-56 mb-4': breakPointService.isSm(), 'w-48': !breakPointService.isSm()}"></app-dropdown-selector>
         <app-tes-button (click)="triggerError()" [ngClass]="{'mb-4': breakPointService.isSm()}"></app-tes-button>
