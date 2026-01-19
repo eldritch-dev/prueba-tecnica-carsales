@@ -11,7 +11,7 @@ import { BreakpointService } from '../../services/breakpoint-service';
   template: `
     <div class="layout flex flex-col">
       <header class="header">
-        <span class="title text-lg flex items-center">Prueba Técnica Carsales</span>
+        <span class="title text-lg flex items-center" [ngClass]="{'justify-center': breakPointService.isSm(), 'ml-8': !breakPointService.isSm()}" style="width:100%">Prueba Técnica Carsales</span>
         @if (!breakPointService.isSm()) {
           <div class="flex">
             <div class="flex justify-evenly items-center">
@@ -86,7 +86,6 @@ import { BreakpointService } from '../../services/breakpoint-service';
         height: 4rem;
 
         .title {
-          margin-left: 2rem;
           font-weight: 600;
         }
       }

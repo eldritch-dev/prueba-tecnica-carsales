@@ -11,3 +11,12 @@ export interface Character {
 interface Origin {
   name: string;
 }
+
+export interface CharactersSearchResponse {
+  characters: CharacterSuggestionDto[];
+}
+
+export interface CharacterSuggestionDto {
+  id: number;
+  name: string;
+}
