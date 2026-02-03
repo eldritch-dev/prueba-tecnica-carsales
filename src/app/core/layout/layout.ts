@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { BreakpointService } from '../../services/breakpoint-service';
+import { BreakpointService } from './breakpoint';
 
 @Component({
   selector: 'app-layout',

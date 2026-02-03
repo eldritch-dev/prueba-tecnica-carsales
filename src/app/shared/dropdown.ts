@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { CharactersService } from '../features/characters/service/characters-service';
-import { BreakpointService } from '../services/breakpoint-service';
+import { BreakpointService } from '../core/layout/breakpoint';
 
 @Component({
   selector: 'app-dropdown-selector',

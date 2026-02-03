@@ -1,5 +1,5 @@
-import { Component, inject, Input, Signal, signal, WritableSignal } from '@angular/core';
-import { ErrorService } from './service/error-service';
+import { Component, inject, Input } from '@angular/core';
+import { ErrorService } from './error.service';
 
 
 @Component({

@@ -5,10 +5,10 @@ import { EpisodesService } from './service/episodes-service';
 import { Paginator } from '../../shared/paginator';
 import { EpisodesCard } from './episodes-card';
 import { Episodes } from './models/episodes-model';
-import { ErrorService } from '../../shared/components/errors/service/error-service';
-import { ErrorMessage } from '../../shared/components/errors/error-message';
+import { ErrorService } from '../../core/error/error.service';
+import { ErrorMessage } from '../../core/error/error-message';
 import { TESButton } from '../../shared/tes-button';
-import { BreakpointService } from '../../services/breakpoint-service';
+import { BreakpointService } from '../../core/layout/breakpoint';
 
 @Component({
   selector: 'app-episodes-list',

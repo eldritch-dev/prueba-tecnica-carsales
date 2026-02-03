@@ -1,8 +1,8 @@
 import { Injectable, Signal, WritableSignal, inject, signal } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 
-import { ErrorResponse } from "../models/error-model";
-import { environment } from "../../../../environments/environment";
+import { ErrorResponse } from "./error.model";
+import { environment } from "../../environments/environment";
 import { toSignal } from "@angular/core/rxjs-interop";
 import { catchError, of, Subject, switchMap } from "rxjs";
 
