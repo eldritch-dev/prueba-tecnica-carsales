@@ -19,6 +19,6 @@ En gitbash o powershell:
 Visitar proyecto en "http://localhost:4200" si es que no se abrió el navegador.
 
 # Detalles
-1. El proyecto se ha implementado utilizando arquitectura basada en características, muy similar a la arquitectura vertical del backend for frontend, en donde cada caso de uso es aquí una característica (feature). La carpeta "/app/services/" se ha definido para "servicios sueltos" transversales y la carpeta shared para componentes transversales. Cuando un componente, como error, necesita más archivos para constituirse, se le ha creado una carpeta propia dentro de "/app/shared/components/".
+1. El proyecto se ha implementado utilizando arquitectura basada en características, muy similar a la arquitectura vertical del backend for frontend, en donde cada caso de uso es aquí una característica (feature). La carpeta "/app/services/" se ha definido para smart services and components transversales y la carpeta shared para dumb components transversales. Como ejemplo, "Error" es un componente smart por lo que se le ha creado una carpeta propia dentro de "/app/core/error/".
 2. El proyecto presenta 2 funcionalidades principales: obtener personajes y obtener episodios.
 3. A su vez, presenta 3 funcionalidades extra en la vista de obtención de personajes: buscar por nombre, filtrar por especie y filtrar por género. Estas funcionalidades se pueden combinar.
